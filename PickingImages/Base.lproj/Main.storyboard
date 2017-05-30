@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PickingImages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rw9-yg-SgZ">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFF-k8-trh">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Pick" id="SaK-GM-2aX">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="B5r-H4-nHj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kpN-IN-b7W"/>
+                                    <barButtonItem style="plain" systemItem="organize" id="SA9-OE-xx8">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="xow-wy-xbX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cMt-w5-o3H"/>
+                                    <barButtonItem style="plain" systemItem="camera" id="qpV-59-5aZ">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="XQa-vS-UFM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7Ds-Pg-wcb">
+                                <rect key="frame" x="16" y="50" width="343" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="stp-7i-whW">
+                                <rect key="frame" x="16" y="576" width="343" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="2RP-V6-2YE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Ds-Pg-wcb" secondAttribute="trailing" id="7eO-ex-keX"/>
+                            <constraint firstItem="WFF-k8-trh" firstAttribute="top" secondItem="stp-7i-whW" secondAttribute="bottom" constant="30" id="CQo-lx-gNN"/>
+                            <constraint firstItem="stp-7i-whW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DpF-7I-ywq"/>
+                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Hn1-5F-kar"/>
+                            <constraint firstItem="WFF-k8-trh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lb5-h2-NRM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="stp-7i-whW" secondAttribute="trailing" id="Tgo-IK-MkT"/>
+                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YWP-Lh-4B1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rw9-yg-SgZ" secondAttribute="bottom" id="aOg-tG-iT5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rw9-yg-SgZ" secondAttribute="trailing" id="erj-4M-Bwb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WFF-k8-trh" secondAttribute="bottom" id="qW8-Me-Kos"/>
+                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qh4-dR-a6O"/>
+                            <constraint firstAttribute="trailing" secondItem="WFF-k8-trh" secondAttribute="trailing" id="vrZ-z2-O2a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomTextField" destination="stp-7i-whW" id="Bd4-nD-zP1"/>
+                        <outlet property="cameraButton" destination="qpV-59-5aZ" id="CEa-4Z-mr1"/>
+                        <outlet property="imageAlbums" destination="SA9-OE-xx8" id="dBp-to-NnL"/>
+                        <outlet property="imagePickerView" destination="Rw9-yg-SgZ" id="Fqf-Uj-2gL"/>
+                        <outlet property="topTextField" destination="7Ds-Pg-wcb" id="pu2-ZJ-WZD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-345" y="124"/>
         </scene>
     </scenes>
 </document>
