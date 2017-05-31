@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageAlbums: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
-    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -55,33 +54,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
-
-    // Picking an image
-    @IBAction func pickAnImage(_ sender: Any) {
+    
+    // Image Picker setting func
+    func imagePickerSetPresent(pickerSourceType: UIImagePickerControllerSourceType?) {
         
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        if let sourceType = pickerSourceType {
+            pickerController.sourceType = sourceType
+        }
         self.present(pickerController, animated: true, completion: nil)
+    }
+
+    // Picking an image
+    @IBAction func pickAnImage(_ sender: Any) {
+        imagePickerSetPresent(pickerSourceType: nil)
     }
     
     // Picking an image from album
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        self.present(pickerController, animated: true, completion: nil)
+       imagePickerSetPresent(pickerSourceType: .photoLibrary)
     }
     
     // Taking a picture to use.
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        self.present(pickerController, animated: true, completion: nil)
+        imagePickerSetPresent(pickerSourceType: .camera)
     }
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -89,12 +87,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.image = image
         }
         
-        print("Method: imaagePickerController executed")
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("Method: imaagePickerControllerDidCancel executed")
+
         dismiss(animated: true, completion: nil)
     }
 
