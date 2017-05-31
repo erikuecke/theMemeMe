@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    
+
 
     // Setting up font style
     // Text Font, white with black outline
@@ -25,7 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeColorAttributeName: UIColor.black,
         NSForegroundColorAttributeName: UIColor.white,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: Float(5)
+        NSStrokeWidthAttributeName: -5
     ]
     
     // Initialize Delegate
@@ -37,6 +39,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Assign MemeTextFieldDelegate
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
+        
+        
+        
+        
         
         // Set meme text attributes
         topTextField.defaultTextAttributes = memeTextAttributes
@@ -55,12 +61,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         subscribeToKeyboardNotifications()
+        subscribeToHideKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         uncsubscribeFromKeyboardNotifications()
+        uncsubscribeFromHideKeyboardNotifications()
     }
     
     // Image Picker setting func
@@ -95,7 +103,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.image = image
         }
         
+        
         dismiss(animated: true, completion: nil)
+        
+      
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -123,6 +134,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func uncsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    // Reversing keyboard. Keyboard will hide.
+    func keyboardWillHide() {
+        view.frame.origin.y = 0
+        print("It did hide")
+    }
+    
+    func subscribeToHideKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func uncsubscribeFromHideKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        print("It unsubscribed from hide observer")
     }
 
 }
