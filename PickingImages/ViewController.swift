@@ -18,9 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    
-
-
     // Setting up font style
     // Text Font, white with black outline
     let memeTextAttributes: [String:Any] = [
@@ -53,6 +50,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.textAlignment = .center
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .center
+    }
+    
+    // Initializing a memed model object
+    func save() {
+        
+//        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image, memedImage: memedImage)
+    }
+    
+    // Creating memedImage combining Image and text
+    func generateMemedImage() -> UIImage {
+        
+        // Hide toolbar navigation bar
+        self.navigationController?.isNavigationBarHidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // Show toolbar/navigation
+        self.navigationController?.isNavigationBarHidden = true
+        
+        
+        return memedImage
     }
     
     // Camera status enabling or disabling 

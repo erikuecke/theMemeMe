@@ -22,11 +22,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksL-4P-z0o">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="OQh-2B-vun">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="AIo-wy-m8K"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Heb-LI-cuy"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rw9-yg-SgZ">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="16" y="44" width="343" height="623"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7Ds-Pg-wcb">
-                                <rect key="frame" x="16" y="70" width="343" height="17"/>
+                                <rect key="frame" x="16" y="50" width="343" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -60,21 +69,24 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="70R-Fa-Zuv"/>
+                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="70R-Fa-Zuv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Ds-Pg-wcb" secondAttribute="trailing" id="7eO-ex-keX"/>
                             <constraint firstItem="WFF-k8-trh" firstAttribute="top" secondItem="stp-7i-whW" secondAttribute="bottom" constant="30" id="CQo-lx-gNN"/>
                             <constraint firstItem="stp-7i-whW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DpF-7I-ywq"/>
+                            <constraint firstItem="ksL-4P-z0o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="KUk-h1-19E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ksL-4P-z0o" secondAttribute="trailing" constant="-16" id="LEr-9f-0TZ"/>
                             <constraint firstItem="WFF-k8-trh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lb5-h2-NRM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="stp-7i-whW" secondAttribute="trailing" id="Tgo-IK-MkT"/>
                             <constraint firstItem="Rw9-yg-SgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YWP-Lh-4B1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rw9-yg-SgZ" secondAttribute="bottom" id="aOg-tG-iT5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rw9-yg-SgZ" secondAttribute="trailing" id="erj-4M-Bwb"/>
-                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hJh-wm-epJ"/>
+                            <constraint firstItem="ksL-4P-z0o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jkS-XD-yD3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WFF-k8-trh" secondAttribute="bottom" id="qW8-Me-Kos"/>
                             <constraint firstItem="7Ds-Pg-wcb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qh4-dR-a6O"/>
                             <constraint firstAttribute="trailing" secondItem="WFF-k8-trh" secondAttribute="trailing" id="vrZ-z2-O2a"/>
+                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="wth-3j-Lan"/>
                         </constraints>
                     </view>
                     <connections>
@@ -87,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-345" y="124"/>
+            <point key="canvasLocation" x="-346" y="133"/>
         </scene>
     </scenes>
 </document>
