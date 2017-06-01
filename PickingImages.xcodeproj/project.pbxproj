@@ -61,11 +61,11 @@
 				9EFD306F1EDDFB7300F71867 /* AppDelegate.swift */,
 				9EFD30711EDDFB7300F71867 /* ViewController.swift */,
 				9EFD30811EDE294100F71867 /* MemeTextFieldDelegate.swift */,
+				9ECEA6021EDF8AB500EB0E90 /* MemeStruct.swift */,
 				9EFD30731EDDFB7300F71867 /* Main.storyboard */,
 				9EFD30761EDDFB7300F71867 /* Assets.xcassets */,
 				9EFD30781EDDFB7300F71867 /* LaunchScreen.storyboard */,
 				9EFD307B1EDDFB7300F71867 /* Info.plist */,
-				9ECEA6021EDF8AB500EB0E90 /* MemeStruct.swift */,
 			);
 			path = PickingImages;
 			sourceTree = "<group>";

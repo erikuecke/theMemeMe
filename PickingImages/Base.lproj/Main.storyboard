@@ -26,8 +26,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="OQh-2B-vun">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="AIo-wy-m8K"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Heb-LI-cuy"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="AIo-wy-m8K">
+                                            <connections>
+                                                <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="bqr-Oa-Rh6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Heb-LI-cuy">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="BYZ-38-t0r" id="uCm-Jz-XMb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -35,7 +43,7 @@
                                 <rect key="frame" x="16" y="44" width="343" height="623"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7Ds-Pg-wcb">
-                                <rect key="frame" x="16" y="50" width="343" height="17"/>
+                                <rect key="frame" x="16" y="74" width="343" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -71,35 +79,38 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="70R-Fa-Zuv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Ds-Pg-wcb" secondAttribute="trailing" id="7eO-ex-keX"/>
+                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="top" secondItem="ksL-4P-z0o" secondAttribute="bottom" id="9fu-xe-o6A"/>
                             <constraint firstItem="WFF-k8-trh" firstAttribute="top" secondItem="stp-7i-whW" secondAttribute="bottom" constant="30" id="CQo-lx-gNN"/>
                             <constraint firstItem="stp-7i-whW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DpF-7I-ywq"/>
-                            <constraint firstItem="ksL-4P-z0o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="KUk-h1-19E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ksL-4P-z0o" secondAttribute="trailing" constant="-16" id="LEr-9f-0TZ"/>
                             <constraint firstItem="WFF-k8-trh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lb5-h2-NRM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="stp-7i-whW" secondAttribute="trailing" id="Tgo-IK-MkT"/>
+                            <constraint firstItem="ksL-4P-z0o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VHC-J7-pIV"/>
                             <constraint firstItem="Rw9-yg-SgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YWP-Lh-4B1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rw9-yg-SgZ" secondAttribute="bottom" id="aOg-tG-iT5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rw9-yg-SgZ" secondAttribute="trailing" id="erj-4M-Bwb"/>
                             <constraint firstItem="ksL-4P-z0o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jkS-XD-yD3"/>
+                            <constraint firstItem="7Ds-Pg-wcb" firstAttribute="top" secondItem="ksL-4P-z0o" secondAttribute="bottom" constant="30" id="mIA-9D-Mgn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WFF-k8-trh" secondAttribute="bottom" id="qW8-Me-Kos"/>
                             <constraint firstItem="7Ds-Pg-wcb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qh4-dR-a6O"/>
                             <constraint firstAttribute="trailing" secondItem="WFF-k8-trh" secondAttribute="trailing" id="vrZ-z2-O2a"/>
-                            <constraint firstItem="Rw9-yg-SgZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="wth-3j-Lan"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomBar" destination="WFF-k8-trh" id="BNC-WS-5mF"/>
                         <outlet property="bottomTextField" destination="stp-7i-whW" id="Bd4-nD-zP1"/>
                         <outlet property="cameraButton" destination="qpV-59-5aZ" id="CEa-4Z-mr1"/>
                         <outlet property="imageAlbums" destination="SA9-OE-xx8" id="dBp-to-NnL"/>
                         <outlet property="imagePickerView" destination="Rw9-yg-SgZ" id="Fqf-Uj-2gL"/>
+                        <outlet property="shareButton" destination="AIo-wy-m8K" id="sI5-C9-q2P"/>
+                        <outlet property="topBar" destination="ksL-4P-z0o" id="M7M-SF-I0Y"/>
                         <outlet property="topTextField" destination="7Ds-Pg-wcb" id="pu2-ZJ-WZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346.39999999999998" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-978" y="126"/>
         </scene>
     </scenes>
 </document>
