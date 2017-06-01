@@ -111,6 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Taking a picture to use.
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         imagePickerSetPresent(pickerSourceType: .camera)
+        print("camera picked")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -182,8 +183,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         
         // Hide toolbar navigation bar
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        self.navigationController?.setToolbarHidden(true, animated: true)
        topBar.isHidden = true
         bottomBar.isHidden = true
     
@@ -195,8 +194,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         // Show toolbar/navigation
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        self.navigationController?.setToolbarHidden(false, animated: true)
         topBar.isHidden = false
         bottomBar.isHidden = false
         

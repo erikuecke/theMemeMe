@@ -36,5 +36,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Just Testing</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Meme Me app would like to use your camera</string>
 </dict>
 </plist>
