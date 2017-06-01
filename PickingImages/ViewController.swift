@@ -18,6 +18,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // Setting up font style
     // Text Font, white with black outline
     let memeTextAttributes: [String:Any] = [
@@ -37,10 +41,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
         
-        
-        
-        
-        
         // Set meme text attributes
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -50,6 +50,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.textAlignment = .center
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .center
+        
+        // hide status bar
+        
     }
     
     // Initializing a memed model object
