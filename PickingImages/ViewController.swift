@@ -111,7 +111,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Taking a picture to use.
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         imagePickerSetPresent(pickerSourceType: .camera)
-        print("camera picked")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -171,7 +170,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func uncsubscribeFromHideKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-        print("It unsubscribed from hide observer")
     }
     
     // GENERATE MEMED IMAGE AND MEME STRUCT
@@ -203,7 +201,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
-        print("\(meme.topText)")
     }
     
 
