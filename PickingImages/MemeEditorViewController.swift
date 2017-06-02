@@ -25,10 +25,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Share Button
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
 
-    
-    
+    // Clear out status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -45,6 +43,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // Initialize Delegate
     let memeTextDelegate = MemeTextFieldDelegate()
     
+    // Initial textField Methods
+    func configureTextField(_ textField: UITextField, defaultText: String) {
+        textField.text = defaultText
+        textField.textAlignment = .center
+    }
     
     // MARK: VIEW DID LOAD
     override func viewDidLoad() {
@@ -59,8 +62,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
         // Initial text of textfields
-        topTextField.text = "TOP"
-        topTextField.textAlignment = .center
+        configureTextField(topTextField, defaultText: "TOP")
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .center
         
