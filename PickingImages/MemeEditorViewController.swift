@@ -63,8 +63,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Initial text of textfields
         configureTextField(topTextField, defaultText: "TOP")
-        bottomTextField.text = "BOTTOM"
-        bottomTextField.textAlignment = .center
+        configureTextField(bottomTextField, defaultText: "BOTTOM")
         
         // Disable share button
             shareButton.isEnabled = false
@@ -176,17 +175,25 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // GENERATE MEMED IMAGE AND MEME STRUCT
     
-    // Initializing a memed model object
     
+    // ToolBar/NavBar visibility method
+    
+    func shouldHideBars(_ isHidden: Bool) {
+        topBar.isHidden = isHidden
+        bottomBar.isHidden = isHidden
+    }
+    // Initializing a memed model object
+    func save() {
+        
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+    }
     
     // Creating memedImage combining Image and text
     func generateMemedImage() -> UIImage {
         
         // Hide toolbar navigation bar
-       topBar.isHidden = true
-        bottomBar.isHidden = true
+        shouldHideBars(true)
     
-        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -194,16 +201,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         UIGraphicsEndImageContext()
         
         // Show toolbar/navigation
-        topBar.isHidden = false
-        bottomBar.isHidden = false
+        shouldHideBars(false)
         
         return memedImage
     }
     
-    func save() {
-        
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
-    }
+    
     
 
     // MARK: SHARE ACTION METHOD
@@ -221,11 +224,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // MARK: CANCEL BUTTON METHOD
-    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        configureTextField(topTextField, defaultText: "TOP")
+        configureTextField(bottomTextField, defaultText: "BOTTOM")
         imagePickerView.image = nil
     }
 
