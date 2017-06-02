@@ -184,8 +184,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     // Initializing a memed model object
     func save() {
-        
+        print("Save method fired in the completion handler completionWithItemsHandler")
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        
     }
     
     // Creating memedImage combining Image and text
@@ -206,8 +207,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
-    
-    
 
     // MARK: SHARE ACTION METHOD
     // IBACTION for Sharing
@@ -218,8 +217,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Define an instance of ActivityViewController
         let shareViewController = UIActivityViewController(activityItems: activeMemedImage, applicationActivities: nil)
+        shareViewController.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                self.save()
+
+            }
+            
+        }
         
-        self.present(shareViewController, animated: true, completion: save)
+        self.present(shareViewController, animated: true, completion: nil)
         
     }
     
