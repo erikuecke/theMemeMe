@@ -13,7 +13,9 @@ class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     // Initial edit clears textField
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
     }
     
     // Dismiss keyboard on hitting return 
