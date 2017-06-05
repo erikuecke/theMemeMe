@@ -45,6 +45,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Initial textField Methods
     func configureTextField(_ textField: UITextField, defaultText: String) {
+        
+        textField.delegate = memeTextDelegate
+        textField.defaultTextAttributes = memeTextAttributes
+        
         textField.text = defaultText
         textField.textAlignment = .center
     }
@@ -52,22 +56,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Assign MemeTextFieldDelegate
-        self.topTextField.delegate = memeTextDelegate
-        self.bottomTextField.delegate = memeTextDelegate
-        
-        // Set meme text attributes
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
+    
         // Initial text of textfields
         configureTextField(topTextField, defaultText: "TOP")
         configureTextField(bottomTextField, defaultText: "BOTTOM")
         
         // Disable share button
             shareButton.isEnabled = false
-        
         
     }
     
@@ -231,9 +226,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: CANCEL BUTTON METHOD
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        
-        configureTextField(topTextField, defaultText: "TOP")
-        configureTextField(bottomTextField, defaultText: "BOTTOM")
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+    
         imagePickerView.image = nil
     }
 
