@@ -177,11 +177,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topBar.isHidden = isHidden
         bottomBar.isHidden = isHidden
     }
+    
     // Initializing a memed model object
     func save() {
-        print("Save method fired in the completion handler completionWithItemsHandler")
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
         
+        // Saving meme to the AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Creating memedImage combining Image and text
@@ -215,7 +218,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareViewController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
-
+                
+                let MemeTableController = self.storyboard?.instantiateViewController(withIdentifier: "SentMemesTableViewController") as! SentMemesTableViewController
+                self.present(MemeTableController, animated: true, completion: nil)
             }
             
         }
