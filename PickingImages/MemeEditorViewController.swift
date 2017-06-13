@@ -219,8 +219,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if completed {
                 self.save()
                 
-                let MemeNavTableController = self.storyboard?.instantiateViewController(withIdentifier: "TableNavigationController") as! UINavigationController
-                self.present(MemeNavTableController, animated: true, completion: nil)
+                let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                self.present(MemeTabBarController, animated: true, completion: nil)
             }
             
         }
