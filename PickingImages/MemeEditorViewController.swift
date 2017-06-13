@@ -116,10 +116,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             shareButton.isEnabled = true
         }
         
-        
         dismiss(animated: true, completion: nil)
         
-      
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -207,6 +205,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     // MARK: SHARE ACTION METHOD
+    
+    // Returnin to Sent Memes when sharing or canceling
+    func returnToSentMemes() {
+        let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(MemeTabBarController, animated: true, completion: nil)
+    }
     // IBACTION for Sharing
     @IBAction func shareButtonPressed(_ sender: Any) {
         
@@ -218,26 +222,20 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareViewController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
-                
-                let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                self.present(MemeTabBarController, animated: true, completion: nil)
+                self.returnToSentMemes()
             }
-            
         }
         
         self.present(shareViewController, animated: true, completion: nil)
-        
     }
     
     // MARK: CANCEL BUTTON METHOD
     @IBAction func cancelButtonPressed(_ sender: Any) {
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
-    
         imagePickerView.image = nil
         
-        let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(MemeTabBarController, animated: true, completion: nil)
+        returnToSentMemes()
     }
 
 }
