@@ -235,6 +235,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.text = "BOTTOM"
     
         imagePickerView.image = nil
+        
+        let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(MemeTabBarController, animated: true, completion: nil)
     }
 
 }

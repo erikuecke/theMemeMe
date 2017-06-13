@@ -42,7 +42,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         present(memeEditController, animated: true, completion: nil)
     }
     
-    // MARK: Table view Data Source
+    // MARK: Collection view Data Source
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
@@ -56,6 +56,14 @@ class SentMemesCollectionViewController: UICollectionViewController {
         cell.imageView.image = meme.memedImage
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailController = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = memes[indexPath.row]
+        
+        navigationController?.pushViewController(detailController, animated: true)
     }
 }
 

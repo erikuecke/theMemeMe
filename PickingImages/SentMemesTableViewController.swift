@@ -24,12 +24,15 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
     }
     
+    // Nav present method
     func presentMemeEditor() {
         
         let memeEditController = storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
         present(memeEditController, animated: true, completion: nil)
     }
     
+    
+    // MARK: Table Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
@@ -44,6 +47,14 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.imageView?.image = meme.memedImage
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailController = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = memes[indexPath.row]
+        
+        navigationController?.pushViewController(detailController, animated: true)
     }
     
     
