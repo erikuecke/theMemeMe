@@ -38,5 +38,9 @@
 	<string>Just Testing</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Meme Me app would like to use your camera</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>impact.ttf</string>
+	</array>
 </dict>
 </plist>

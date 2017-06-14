@@ -36,7 +36,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let memeTextAttributes: [String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
         NSForegroundColorAttributeName: UIColor.white,
-        NSFontAttributeName: UIFont(name: "Imapct", size: 40)!,
+        NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
         NSStrokeWidthAttributeName: -3.5
     ]
     
@@ -92,11 +92,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             pickerController.sourceType = sourceType
         }
         self.present(pickerController, animated: true, completion: nil)
-    }
-
-    // Picking an image
-    @IBAction func pickAnImage(_ sender: Any) {
-        imagePickerSetPresent(pickerSourceType: nil)
     }
     
     // Picking an image from album

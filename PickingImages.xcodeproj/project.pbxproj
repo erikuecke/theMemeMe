@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0395211EF1D8F900E29050 /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0395201EF1D8F900E29050 /* impact.ttf */; };
 		9E097A351EF06FD4005DC0F0 /* SentMemesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E097A341EF06FD4005DC0F0 /* SentMemesCollectionViewController.swift */; };
 		9E097A371EF07167005DC0F0 /* SentMemesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E097A361EF07167005DC0F0 /* SentMemesCollectionViewCell.swift */; };
 		9E097A391EF09623005DC0F0 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E097A381EF09623005DC0F0 /* MemeDetailViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0395201EF1D8F900E29050 /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
 		9E097A341EF06FD4005DC0F0 /* SentMemesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesCollectionViewController.swift; sourceTree = "<group>"; };
 		9E097A361EF07167005DC0F0 /* SentMemesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E097A381EF09623005DC0F0 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				9EFD30761EDDFB7300F71867 /* Assets.xcassets */,
 				9EFD30781EDDFB7300F71867 /* LaunchScreen.storyboard */,
 				9EFD307B1EDDFB7300F71867 /* Info.plist */,
+				9E0395201EF1D8F900E29050 /* impact.ttf */,
 			);
 			path = PickingImages;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E0395211EF1D8F900E29050 /* impact.ttf in Resources */,
 				9EFD307A1EDDFB7300F71867 /* LaunchScreen.storyboard in Resources */,
 				9EFD30771EDDFB7300F71867 /* Assets.xcassets in Resources */,
 				9EFD30751EDDFB7300F71867 /* Main.storyboard in Resources */,

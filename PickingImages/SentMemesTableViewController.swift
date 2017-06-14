@@ -22,6 +22,16 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Create a new Meme function. 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
+        
+        // Erase finding font families
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
     }
     
     // Nav present method

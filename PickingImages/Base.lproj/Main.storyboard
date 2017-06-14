@@ -249,23 +249,19 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFF-k8-trh">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="SaK-GM-2aX">
-                                        <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="B5r-H4-nHj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kpN-IN-b7W"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fop-MD-SDM"/>
                                     <barButtonItem style="plain" systemItem="organize" id="SA9-OE-xx8">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="xow-wy-xbX"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cMt-w5-o3H"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kpN-IN-b7W"/>
                                     <barButtonItem style="plain" systemItem="camera" id="qpV-59-5aZ">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="XQa-vS-UFM"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cMt-w5-o3H"/>
                                 </items>
                             </toolbar>
                         </subviews>
