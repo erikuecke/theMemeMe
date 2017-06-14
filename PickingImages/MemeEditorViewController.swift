@@ -125,10 +125,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // Methods to add to Keyboard notification subscriptions
     func keyboardWillshow(_ notification: Notification) {
         
-        if topTextField.isFirstResponder {
-            return
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyBoardHeight(notification)
         } else {
-        view.frame.origin.y -= getKeyBoardHeight(notification)
+        view.frame.origin.y = 0
         }
     }
     
