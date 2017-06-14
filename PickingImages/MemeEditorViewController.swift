@@ -36,8 +36,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let memeTextAttributes: [String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
         NSForegroundColorAttributeName: UIColor.white,
-        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: -5
+        NSFontAttributeName: UIFont(name: "Imapct", size: 40)!,
+        NSStrokeWidthAttributeName: -3.5
     ]
     
     // Initialize Delegate
