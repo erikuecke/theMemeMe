@@ -179,6 +179,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Saving meme to the AppDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memes.append(meme)
+        self.dismiss(animated: true, completion: nil)
         
     }
     
@@ -220,8 +221,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if completed {
                 self.save()
                 
-                 // Hi, This reloads the tableView data in the most effecient way. Creating an outlet of the table view inside of SentMemesTableViewController and then attempting tableView.reloadData() inside of viewWillAppear() or the like DOES NOT reload the data in the table view. Wouldn't it have been better top push the memed editor on and then pop it off?
-                self.returnToSentMemes()
+                // MARK: PROBLEM this causeS the Sent Memes table to not load an image, eve with tableView.reloadData() in viewWillAppear() utilized in SentMemesTableViewController.swift, before I just used the above function returnToSentMemes() and it worked fine.
+                 self.dismiss(animated: true, completion: nil)
+                
 
             }
             

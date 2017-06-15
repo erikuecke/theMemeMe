@@ -14,6 +14,8 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     var memes: [Meme]!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Create a new Meme function. 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        
     }
 
     // Nav present method
