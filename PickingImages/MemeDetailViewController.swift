@@ -23,5 +23,6 @@ class MemeDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         imageView.image = meme.memedImage
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
