@@ -16,8 +16,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,13 +27,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
         
         // Flow Layout
-        let space: CGFloat = 3.0
-        let dimensionWidth = (view.frame.size.width - (2 * space)) / 3.0
-        let dimensionHeight = (view.frame.size.height - (2 * space)) / 3.0
+        let space:CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimensionWidth, height: dimensionHeight)
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
         
     }
     

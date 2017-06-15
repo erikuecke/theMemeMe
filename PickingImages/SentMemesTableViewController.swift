@@ -13,6 +13,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     var memes: [Meme]!
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +62,18 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         navigationController?.pushViewController(detailController, animated: true)
     }
     
+    // MARK: Swipe to delete tableView cell functions
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // Remove data and update tableview.
+            memes.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            print("\(memes.count)")
+        }
+    }
     
 }
