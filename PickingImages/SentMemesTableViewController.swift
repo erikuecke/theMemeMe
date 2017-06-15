@@ -22,15 +22,19 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Create a new Meme function. 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
+        
+        // To pass table to meme me editor for data reload (check nav button set up)
+        
     }
     
     // Nav present method
     func presentMemeEditor() {
         
         let memeEditController = storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+       
+        
         present(memeEditController, animated: true, completion: nil)
     }
-    
     
     // MARK: Table Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

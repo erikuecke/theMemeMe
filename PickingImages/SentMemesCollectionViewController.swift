@@ -14,6 +14,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
     var memes: [Meme]!
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

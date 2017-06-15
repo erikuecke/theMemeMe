@@ -10,6 +10,7 @@ import UIKit
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var theTableView: SentMemesTableViewController!
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var imageAlbums: UIBarButtonItem!
@@ -178,6 +179,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Saving meme to the AppDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memes.append(meme)
+        
     }
     
     // Creating memedImage combining Image and text
@@ -203,8 +205,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Returnin to Sent Memes when sharing or canceling
     func returnToSentMemes() {
-        let MemeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(MemeTabBarController, animated: true, completion: nil)
+        let memeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(memeTabBarController, animated: true, completion: nil)
     }
     // IBACTION for Sharing
     @IBAction func shareButtonPressed(_ sender: Any) {
@@ -217,8 +219,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareViewController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
+                
+                // Obligatory dismiss function
+                self.dismiss(animated: true, completion: nil)
+                
+                // Hi, This reloads the tableView data in the most effecient way. Creating an outlet of the table view inside of SentMemesTableViewController and then attempting tableView.reloadData() inside of viewWillAppear() or the like DOES NOT reload the data in the table view. Wouldn't it have been better top push the memed editor on and then pop it off?
                 self.returnToSentMemes()
             }
+            
         }
         
         self.present(shareViewController, animated: true, completion: nil)
@@ -230,7 +238,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil
         
-        returnToSentMemes()
+       dismiss(animated: true, completion: nil)
+
     }
 
 }

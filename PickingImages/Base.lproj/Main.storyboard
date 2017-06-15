@@ -33,7 +33,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TableNavigationController" id="OM1-cC-ed8" userLabel="TableNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="table_30x30" id="tZx-uH-ggP"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2py-xQ-oYY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2py-xQ-oYY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -50,7 +50,7 @@
             <objects>
                 <navigationController id="5Ds-2Y-jRu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="collection_30x30" id="gRU-sN-TFi"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zj1-dR-vhj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zj1-dR-vhj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -66,7 +66,7 @@
         <scene sceneID="tdp-P3-Eyl">
             <objects>
                 <collectionViewController id="Hzz-ni-EH7" customClass="SentMemesCollectionViewController" customModule="PickingImages" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5lP-Gf-HT7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5lP-Gf-HT7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,6 +103,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="fVQ-Ui-OZo"/>
                     <connections>
                         <outlet property="flowLayout" destination="J2g-AZ-Gt0" id="hJj-v2-jRs"/>
+                        <outlet property="theCollectionView" destination="5lP-Gf-HT7" id="8en-Sg-zvW"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfE-RI-w2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,6 +166,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="XvU-xx-pZH"/>
+                    <connections>
+                        <outlet property="tableView" destination="gAS-IZ-E8m" id="PUh-1n-XIe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lmz-Sc-l7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
