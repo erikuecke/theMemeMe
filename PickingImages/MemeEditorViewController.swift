@@ -219,11 +219,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareViewController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
+                
+                 // Hi, This reloads the tableView data in the most effecient way. Creating an outlet of the table view inside of SentMemesTableViewController and then attempting tableView.reloadData() inside of viewWillAppear() or the like DOES NOT reload the data in the table view. Wouldn't it have been better top push the memed editor on and then pop it off?
                 self.returnToSentMemes()
 
-                
-                // Hi, This reloads the tableView data in the most effecient way. Creating an outlet of the table view inside of SentMemesTableViewController and then attempting tableView.reloadData() inside of viewWillAppear() or the like DOES NOT reload the data in the table view. Wouldn't it have been better top push the memed editor on and then pop it off?
-                
             }
             
         }
