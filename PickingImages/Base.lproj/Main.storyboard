@@ -104,6 +104,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="fVQ-Ui-OZo"/>
                     <connections>
                         <outlet property="flowLayout" destination="J2g-AZ-Gt0" id="hJj-v2-jRs"/>
+                        <outlet property="theCollectionView" destination="5lP-Gf-HT7" id="1ZM-fS-XZd"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfE-RI-w2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
