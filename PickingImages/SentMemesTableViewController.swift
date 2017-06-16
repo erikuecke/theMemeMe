@@ -27,8 +27,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(presentMemeEditor))
     }
     
+    // Reloading array from AppDelegatek: Will help to update table view after meme editor completes.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memes = appDelegate.memes
         tableView.reloadData()
         
     }

@@ -74,14 +74,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         subscribeToKeyboardNotifications()
-//        subscribeToHideKeyboardNotifications()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         uncsubscribeFromKeyboardNotifications()
-//        uncsubscribeFromHideKeyboardNotifications()
     }
     
     // Image Picker setting func
@@ -159,16 +158,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     }
     
-    
-    
-//    func subscribeToHideKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-//    }
-    
-//    func uncsubscribeFromHideKeyboardNotifications() {
-//        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-//    }
-    
     // GENERATE MEMED IMAGE AND MEME STRUCT
     
     
@@ -227,15 +216,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareViewController.completionWithItemsHandler = { activity, completed, items, error in
             if completed {
                 self.save()
+                self.dismiss(animated: true, completion: nil)
                 
-                // MARK: PROBLEM this causes the Sent Memes table to not load an image, eve with tableView.reloadData() in viewWillAppear() utilized in SentMemesTableViewController.swift, before I just used the above function returnToSentMemes() and it worked fine.
-                 self.dismiss(animated: true, completion: nil)
-                
-
             }
-            
         }
-        
         self.present(shareViewController, animated: true, completion: nil)
     }
     
