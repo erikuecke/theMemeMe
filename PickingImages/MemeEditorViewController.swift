@@ -74,14 +74,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         subscribeToKeyboardNotifications()
-        subscribeToHideKeyboardNotifications()
+//        subscribeToHideKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         uncsubscribeFromKeyboardNotifications()
-        uncsubscribeFromHideKeyboardNotifications()
+//        uncsubscribeFromHideKeyboardNotifications()
     }
     
     // Image Picker setting func
@@ -133,6 +133,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    // Reversing keyboard. Keyboard will hide.
+    func keyboardWillHide() {
+        view.frame.origin.y = 0
+    }
+    
     func getKeyBoardHeight(_ notification: Notification) -> CGFloat {
         
         let userInfo = notification.userInfo
@@ -142,25 +147,27 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Keyboard methods for subscribing/unsubscribing from notifications
     func subscribeToKeyboardNotifications() {
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillshow(_:)), name: .UIKeyboardWillShow, object: nil)
-    }
-    
-    func uncsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-    }
-    
-    // Reversing keyboard. Keyboard will hide.
-    func keyboardWillHide() {
-        view.frame.origin.y = 0
-    }
-    
-    func subscribeToHideKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
     
-    func uncsubscribeFromHideKeyboardNotifications() {
+    func uncsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+
     }
+    
+    
+    
+//    func subscribeToHideKeyboardNotifications() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+//    }
+    
+//    func uncsubscribeFromHideKeyboardNotifications() {
+//        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+//    }
     
     // GENERATE MEMED IMAGE AND MEME STRUCT
     
@@ -221,7 +228,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if completed {
                 self.save()
                 
-                // MARK: PROBLEM this causeS the Sent Memes table to not load an image, eve with tableView.reloadData() in viewWillAppear() utilized in SentMemesTableViewController.swift, before I just used the above function returnToSentMemes() and it worked fine.
+                // MARK: PROBLEM this causes the Sent Memes table to not load an image, eve with tableView.reloadData() in viewWillAppear() utilized in SentMemesTableViewController.swift, before I just used the above function returnToSentMemes() and it worked fine.
                  self.dismiss(animated: true, completion: nil)
                 
 
